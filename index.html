@@ -113,6 +113,8 @@
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
+        config.webglContextAttributes = { preserveDrawingBuffer: true, powerPreference: "high-performance" };
+        config.devicePixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
         createUnityInstance(canvas, config, (progress) => {
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
