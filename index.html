@@ -52,12 +52,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/WebglARBiaHNV1.0.4.loader.js";
+      var loaderUrl = buildUrl + "/BeerHNArv2.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/WebglARBiaHNV1.0.4.data.unityweb",
-        frameworkUrl: buildUrl + "/WebglARBiaHNV1.0.4.framework.js.unityweb",
-        codeUrl: buildUrl + "/WebglARBiaHNV1.0.4.wasm.unityweb",
+        dataUrl: buildUrl + "/BeerHNArv2.data.unityweb",
+        frameworkUrl: buildUrl + "/BeerHNArv2.framework.js.unityweb",
+        codeUrl: buildUrl + "/BeerHNArv2.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "T90Dev",
         productName: "BIA HN AR",
@@ -113,8 +113,8 @@
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
-        config.webglContextAttributes = { preserveDrawingBuffer: true, powerPreference: "high-performance" };
-        config.devicePixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+        config.webglContextAttributes = { preserveDrawingBuffer: false, powerPreference: "high-performance" };
+        config.devicePixelRatio = Math.min(window.devicePixelRatio || 1, 1.25);
         createUnityInstance(canvas, config, (progress) => {
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
