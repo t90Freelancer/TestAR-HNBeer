@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | BiaHnImageTracking</title>
+    <title>Unity Web Player | BIA HN AR</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -20,7 +20,7 @@
       <div id="unity-footer">
         <div id="unity-logo-title-footer"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">BiaHnImageTracking</div>
+        <div id="unity-build-title">BIA HN AR</div>
       </div>
     </div>
     <script>
@@ -52,15 +52,15 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/BHNImageTrackingv3.loader.js";
+      var loaderUrl = buildUrl + "/WebglARBiaHNV1.0.4.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/BHNImageTrackingv3.data.gz",
-        frameworkUrl: buildUrl + "/BHNImageTrackingv3.framework.js.gz",
-        codeUrl: buildUrl + "/BHNImageTrackingv3.wasm.gz",
+        dataUrl: buildUrl + "/WebglARBiaHNV1.0.4.data.unityweb",
+        frameworkUrl: buildUrl + "/WebglARBiaHNV1.0.4.framework.js.unityweb",
+        codeUrl: buildUrl + "/WebglARBiaHNV1.0.4.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "MaiMedia",
-        productName: "BiaHnImageTracking",
+        companyName: "T90Dev",
+        productName: "BIA HN AR",
         productVersion: "0.1.0",
         showBanner: unityShowBanner,
         // errorHandler: function(err, url, line) {
@@ -113,6 +113,8 @@
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
+        config.webglContextAttributes = { preserveDrawingBuffer: false, powerPreference: "high-performance" };
+        config.devicePixelRatio = Math.min(window.devicePixelRatio || 1, 1.25);
         createUnityInstance(canvas, config, (progress) => {
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
